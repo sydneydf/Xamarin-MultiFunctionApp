@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiFunctionApp.WeatherPage">
+    <ContentPage.Content>
+        <RefreshView x:Name="refreshPage" Refreshing="refreshPage_Refreshing">
+            <ScrollView>
+
+                <!--Main 5 Grids-->
+                <StackLayout Orientation="Vertical" Spacing="5">
+
+                    <!--Start Tile Header-->
+                    <Frame Margin="10, 10, 10, 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Frame>
+                                <ImageButton x:Name="btn_HomePage" Clicked="btn_HomePage_Clicked" Source="homeicon2.png" BackgroundColor="#07C8F9" Grid.Row="0" Grid.Column="0"></ImageButton>
+                            </Frame>
+                            <Label Text="Weather Page" FontSize="22" Grid.Row="0" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" Grid.ColumnSpan="2"></Label>
+                            <Label x:Name="selected_day" Text="Current day" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+                            <Button x:Name="btn_minusDay" Text="Minus" Grid.Row="1" Grid.Column="0" Clicked="Btn_minusDay_OnClicked"></Button>
+                            <Button x:Name="btn_plusDay" Text="Plus" Grid.Row="1" Grid.Column="2" Clicked="Btn_plusDay_OnClicked"></Button>
+                        </Grid>
+                    </Frame>
+
+                    <!--SunTimes Box-->
+                    <Frame Margin="10, 5, 10, 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label Text="Sunrise" Grid.Row="0" Grid.Column="0"></Label>
+                            <Label Text="Null" x:Name="display_Sunrise" Grid.Row="1" Grid.Column="0"></Label>
+
+                            <Label Text="Sunset" Grid.Row="0" Grid.Column="1"></Label>
+                            <Label Text="Null" x:Name="display_Sunset" Grid.Row="1" Grid.Column="1"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <!--1st Weather Tile MAIN-->
+                    <Frame Margin="10, 5, 10, 5">
+                        <!--Sub Grid to evenly space elements-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Max:" Grid.Row="0" Grid.Column="0"></Label>
+                            <Label x:Name="display_tempMax" Text="0.0" FontSize="17" Grid.Row="1" Grid.Column="0" ></Label>
+                            <Label Text="Min:" Grid.Row="2" Grid.Column="0"></Label>
+                            <Label x:Name="display_tempMin" Text="0.0" FontSize="17" Grid.Row="3" Grid.Column="0"></Label>
+
+                            <Image x:Name="weatherIcon" Source="" Aspect="AspectFill" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></Image>
+
+                            <Label Text="Rain Chance" FontSize="Micro" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" VerticalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"></Label>
+                            <Label Text="Null" x:Name="display_rainChance" Grid.Row="3" Grid.Column="2" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"></Label>
+                            
+                            <Label Text="Weather:" Grid.Column="2" Grid.Row="0"></Label>
+                            <Label Text="Null" x:Name="display_WeatherMain" FontSize="17" Grid.Column="2" Grid.Row="1"></Label>
+                            <Label Text="Null" x:Name="display_WeatherDescript" FontSize="17"  Grid.Column="2" Grid.Row="2"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <!--SliderBox-->
+                    <Frame Margin="10, 5, 10, 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1.5*"></RowDefinition> <!--0 DOWN-->
+                                <RowDefinition Height="*"></RowDefinition> <!--1-->
+                                <RowDefinition Height="*"></RowDefinition> <!--2-->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition> <!--0 Across-->
+                                <ColumnDefinition Width="*"></ColumnDefinition> <!--1-->
+                                <ColumnDefinition Width="*"></ColumnDefinition> <!--2-->
+                                <ColumnDefinition Width="*"></ColumnDefinition> <!--3-->
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Actual Temp:" FontSize="Micro" Grid.Row="0" Grid.Column="0"></Label>
+                            <Label Text="0.0"  FontSize="Micro" x:Name="display_ActualTemp" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="1"></Label>
+
+                            <Label Text="Feels Like:" FontSize="Micro" Grid.Row="0" Grid.Column="2"></Label>
+                            <Label Text="0.0"  FontSize="Micro" x:Name="display_FeelsLike" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="3"></Label>
+
+                            <Label Text="Morn" Grid.Row="1" Grid.Column="0"></Label>
+                            <Label Text="Noon" Grid.Row="1" Grid.Column="1"></Label>
+                            <Label Text="Eve" Grid.Row="1" Grid.Column="2"></Label>
+                            <Label Text="Night" Grid.Row="1" Grid.Column="3"></Label>
+
+                            <Slider x:Name="slider_SliderBox" ValueChanged="Slider_SliderBox_OnValueChanged" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="3"></Slider>
+                        </Grid>
+                    </Frame>
+
+                    <!--Extra Weather Info Box-->
+                    <Frame Margin="10, 5, 10, 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Wind Speed" Grid.Row="0" Grid.Column="0"></Label>
+                            <Label Text="Null" x:Name="display_WindSpeed" Grid.Row="1" Grid.Column="0"></Label>
+
+                            <Label Text="WindDir" Grid.Row="0" Grid.Column="1"></Label>
+                            <Label Text="Null" x:Name="display_WindDirection" Grid.Row="1" Grid.Column="1"></Label>
+
+                            <Label Text="Humidity" Grid.Row="0" Grid.Column="2"></Label>
+                            <Label Text="Null" x:Name="display_Humidity" Grid.Row="1" Grid.Column="2"></Label>
+
+                            <Label Text="Pressure" Grid.Row="0" Grid.Column="3"></Label>
+                            <Label Text="Null" x:Name="display_Pressure" Grid.Row="1" Grid.Column="3"></Label>
+                        </Grid>
+                    </Frame>
+                    
+                    
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

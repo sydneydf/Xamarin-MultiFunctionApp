@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiFunctionApp.App">
+    <Application.Resources>
+        
+        <!--GLORIOUS GLOBAL APPTHEMEBINDINGS, GOD BLESS THIS EXPERIMENTAL FEATURE-->
+        <Style TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=Black, Light=#4DA8DA}"></Setter>
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=LightGrey, Light=#07C8F9}"/>
+            <Setter Property="BorderColor" Value="Black"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark=Black, Light=WhiteSmoke}"></Setter>
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+        </Style>
+
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=LightGrey, Light=#07C8F9}"></Setter>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiFunctionApp.Settings">
+    <ContentPage.Content>
+        <ScrollView>
+            <!--Settings Page-->
+            <StackLayout Orientation="Vertical">
+                <Frame Margin="10, 10, 10, 5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Frame>
+                            <ImageButton x:Name="btn_HomePage" Clicked="btn_HomePage_Clicked" Source="homeicon2.png" BackgroundColor="#07C8F9" Grid.Row="0" Grid.Column="0"></ImageButton>
+                        </Frame>
+                        <Label Text="Settings Page" FontSize="22" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" ></Label>
+                    </Grid>
+                </Frame>
+
+                <!--Global Settings that can be used across AppScreen Instances-->
+                <Frame Margin="10, 10, 10, 5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Global Settings" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></Label>
+
+
+                        <Label Text="Dark Mode" HorizontalOptions="Center" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0"></Label>
+                        <Switch x:Name="switch_Dark" HorizontalOptions="Start" Toggled="switch_Dark_Toggled" IsToggled="False" Grid.Row="1" Grid.Column="1"></Switch>
+
+                        <Label Text="Imperial" HorizontalOptions="Center" VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0"></Label>
+                        <Switch x:Name="switch_Imperial" HorizontalOptions="Start" Toggled="switch_Imperial_Toggled" IsToggled="False" Grid.Row="2" Grid.Column="1"></Switch>
+
+                        <Label Text="Choose Locality:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"></Label>
+                        <Picker Title="Select Your City" x:Name="picker_Locality" SelectedIndexChanged="picker_Locality_SelectedIndexChanged" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"></Picker>
+
+                    </Grid>
+                </Frame>
+
+                
+                <!--Weather App settings that only apply to weather app-->
+                <Frame Margin="10, 10, 10, 5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Weather App" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"></Label>
+                    </Grid>
+                </Frame>
+
+                
+                <!--Timezone app settings-->
+                <Frame Margin="10, 10, 10, 5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Timezone App" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"></Label>
+                    </Grid>
+                </Frame>
+
+                <!--Monopoly Helper settings-->
+                <Frame Margin="10, 10, 10, 5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Monopoly Helper" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"></Label>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

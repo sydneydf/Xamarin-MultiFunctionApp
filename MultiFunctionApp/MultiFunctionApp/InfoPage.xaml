@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiFunctionApp.InfoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Row="0" Grid.Column="0">
+                        <ImageButton Source="homeicon2.png" x:Name="button_Home" Clicked="button_Home_Clicked"></ImageButton>
+                    </Frame>
+                    <Label Text="InfoPage" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="30" Grid.Row="0" Grid.Column="1"></Label>
+                    <Label Text="App info below" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1"></Label>
+                </Grid>
+            </Frame>
+
+            <Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Click here for Api Documentation ->" FontSize="Micro" Grid.Row="0" Grid.Column="0"></Label>
+                    <Button Text="API" x:Name="button_APIdoc" Clicked="button_APIdoc_Clicked" Grid.Row="0" Grid.Column="1"></Button>
+                </Grid>
+            </Frame>
+
+            <Frame></Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
